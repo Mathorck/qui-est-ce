@@ -1,0 +1,21 @@
+{
+  "Homme": "Est-ce un homme?",
+  "Femme": "Est-ce une femme?",
+  "LunettesRondes": "Porte-t-il des lunettes rondes?",
+  "LunettesCarree": "Porte-t-il des lunettes carrées?",
+  "LunettesRectangles": "Porte-t-il des lunettes rectangulaires?",
+  "CheveuxLong": "A-t-il les cheveux longs?",
+  "CheveuxCourt": "A-t-il les cheveux courts?",
+  "CheveuxChauve": "Est-il chauve?",
+  "CheveuxBlanc": "A-t-il les cheveux blancs?",
+  "ClrCheveuxBrun": "A-t-il les cheveux bruns?",
+  "ClrCheveuxBlond": "A-t-il les cheveux blonds?",
+  "ClrCheveuxRoux": "A-t-il les cheveux roux?",
+  "ClrCheveuxNoir": "A-t-il les cheveux noirs?",
+  "BarbeMoustache": "A-t-il une moustache?",
+  "BarbeBarbe": "A-t-il une barbe?",
+  "ClrBarbeBrun": "A-t-il une barbe brune?",
+  "ClrBarbeBlond": "A-t-il une barbe blonde?",
+  "ClrBarbeRoux": "A-t-il une barbe rousse?",
+  "ClrBarbeNoir": "A-t-il une barbe noire?"
+}
