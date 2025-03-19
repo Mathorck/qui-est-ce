@@ -204,7 +204,7 @@ public class Jeu
     public string GetPerson(int x,int y)
     {
         if (isOutOfRange(x, y))
-            return "OutofRange Exception";
+            return "the index was Out of Range Exception";
         return plateau[x, y].Personnage.Nom;
     }
 
