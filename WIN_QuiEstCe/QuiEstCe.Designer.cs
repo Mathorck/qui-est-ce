@@ -31,7 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuiEstCe));
             pnl_Grille = new Panel();
             pbx_Ico = new PictureBox();
-            button1 = new Button();
+            btnQuestion = new Button();
+            lbx_Question = new ListBox();
+            lblResponse = new Label();
+            btnFinal = new Button();
             ((System.ComponentModel.ISupportInitialize)pbx_Ico).BeginInit();
             SuspendLayout();
             // 
@@ -39,7 +42,7 @@
             // 
             pnl_Grille.Location = new Point(12, 137);
             pnl_Grille.Name = "pnl_Grille";
-            pnl_Grille.Size = new Size(776, 311);
+            pnl_Grille.Size = new Size(550, 367);
             pnl_Grille.TabIndex = 0;
             // 
             // pbx_Ico
@@ -52,38 +55,82 @@
             pbx_Ico.TabIndex = 1;
             pbx_Ico.TabStop = false;
             // 
-            // button1
+            // btnQuestion
             // 
-            button1.FlatAppearance.BorderColor = SystemColors.Control;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = SystemColors.Control;
-            button1.Location = new Point(359, 51);
-            button1.Name = "button1";
-            button1.Size = new Size(84, 63);
-            button1.TabIndex = 2;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            btnQuestion.FlatAppearance.BorderColor = SystemColors.Control;
+            btnQuestion.FlatStyle = FlatStyle.Flat;
+            btnQuestion.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnQuestion.ForeColor = SystemColors.Control;
+            btnQuestion.Location = new Point(568, 501);
+            btnQuestion.Name = "btnQuestion";
+            btnQuestion.Size = new Size(293, 47);
+            btnQuestion.TabIndex = 2;
+            btnQuestion.Text = "Poser Question";
+            btnQuestion.UseVisualStyleBackColor = true;
+            btnQuestion.Click += btnQuestion_Click;
+            // 
+            // lbx_Question
+            // 
+            lbx_Question.BackColor = Color.FromArgb(30, 30, 40);
+            lbx_Question.Font = new Font("Segoe UI", 13F);
+            lbx_Question.ForeColor = SystemColors.Control;
+            lbx_Question.FormattingEnabled = true;
+            lbx_Question.Location = new Point(568, 137);
+            lbx_Question.Name = "lbx_Question";
+            lbx_Question.Size = new Size(293, 349);
+            lbx_Question.TabIndex = 3;
+            // 
+            // lblResponse
+            // 
+            lblResponse.AutoSize = true;
+            lblResponse.Font = new Font("Segoe UI", 13F);
+            lblResponse.ForeColor = SystemColors.Control;
+            lblResponse.Location = new Point(283, 100);
+            lblResponse.Name = "lblResponse";
+            lblResponse.Size = new Size(0, 25);
+            lblResponse.TabIndex = 4;
+            // 
+            // btnFinal
+            // 
+            btnFinal.FlatAppearance.BorderColor = SystemColors.Control;
+            btnFinal.FlatStyle = FlatStyle.Flat;
+            btnFinal.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnFinal.ForeColor = SystemColors.Control;
+            btnFinal.Location = new Point(12, 501);
+            btnFinal.Name = "btnFinal";
+            btnFinal.Size = new Size(550, 47);
+            btnFinal.TabIndex = 5;
+            btnFinal.Text = "Est ce que c'est ";
+            btnFinal.UseVisualStyleBackColor = true;
+            btnFinal.Click += btnFinal_Click;
             // 
             // QuiEstCe
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 40);
-            ClientSize = new Size(800, 560);
-            Controls.Add(button1);
+            ClientSize = new Size(873, 560);
+            Controls.Add(btnFinal);
+            Controls.Add(lblResponse);
+            Controls.Add(lbx_Question);
+            Controls.Add(btnQuestion);
             Controls.Add(pnl_Grille);
             Controls.Add(pbx_Ico);
             Name = "QuiEstCe";
             Text = "Qui Est-ce ?";
+            FormClosing += QuiEstCe_FormClosing;
             ((System.ComponentModel.ISupportInitialize)pbx_Ico).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Panel pnl_Grille;
         private PictureBox pbx_Ico;
-        private Button button1;
+        private Button btnQuestion;
+        private ListBox lbx_Question;
+        private Label lblResponse;
+        private Button btnFinal;
     }
 }

@@ -16,6 +16,11 @@ namespace LIB_QuiEstCe
             get { return personnage; }
             private set { personnage = value; }
         }
+        public bool Validee
+        {
+            get { return validee; }
+            private set { validee = value; }
+        }
 
         public Case(Personnage prs)
         {

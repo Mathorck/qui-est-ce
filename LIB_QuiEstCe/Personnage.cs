@@ -25,8 +25,8 @@ namespace LIB_QuiEstCe
         }
         public List<Attribut> Attributs
         {
-            get { return Attributs; }
-            private set { Attributs = value; }
+            get { return attributs; }
+            private set { attributs = value; }
         }
 
         public Personnage(string nom, string image, List<Attribut> attributs)
