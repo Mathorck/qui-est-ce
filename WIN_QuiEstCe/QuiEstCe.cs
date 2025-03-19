@@ -19,7 +19,9 @@ namespace WIN_QuiEstCe
             InitQuestion();
 
             //debug
+#if DEBUG
             lblResponse.Text = jeu.GetChosenOne();
+#endif
         }
 
         private void InitQuestion()
@@ -36,6 +38,7 @@ namespace WIN_QuiEstCe
             List<Personnage> prsn = jeu.GetPersoList();
             btnList = new List<Button>();
             pathList = new Dictionary<Button, Image?>();
+            pnl_Grille.Controls.Clear();
             int i = 0;
             for (int x = 0; x < Jeu.TBL_X; x++)
             {
@@ -159,7 +162,19 @@ namespace WIN_QuiEstCe
             if (jeu.Guess(nom))
             {
                 lblResponse.Text = $"Bravo ! vous avez trouvé c'était {nom}.";
-                // Modal
+                RestartModal rm = new RestartModal(jeu.GetScore());
+                if (rm.ShowDialog() == DialogResult.Yes)
+                {
+                    jeu = new Jeu();
+                    btnFinal.Hide();
+                    InitGrille();
+                    InitQuestion();
+                    lblResponse.Text = "";
+                }
+                else
+                {
+                    Application.Exit();
+                }
             }
             else
             {

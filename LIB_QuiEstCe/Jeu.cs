@@ -1,4 +1,6 @@
-﻿namespace LIB_QuiEstCe;
+﻿using System.Text.Json;
+
+namespace LIB_QuiEstCe;
 public class Jeu
 {
     public const string QUESTION_FILE = "./Ressources/Questions.json";
@@ -31,23 +33,36 @@ public class Jeu
     {
         List<Personnage> personnages = new List<Personnage>
         {
-            new Personnage("Paul", "Ressources/Images/Paul.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxCourt, Attribut.ClrCheveuxNoir, Attribut.Lunettes, Attribut.BarbeNu }),
+            new Personnage("Alain", "Ressources/Images/Alain.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxCourt, Attribut.ClrCheveuxRoux, Attribut.Lunettes, Attribut.BarbeNu }),
+            new Personnage("Alice", "Ressources/Images/Alice.png", new List<Attribut> { Attribut.Femme, Attribut.CheveuxCourt, Attribut.ClrCheveuxNoir, Attribut.BarbeNu, Attribut.CheveuxTypeRaides }),
+            new Personnage("Bob", "Ressources/Images/Bob.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxCourt, Attribut.ClrCheveuxNoir, Attribut.BarbeNu }),
+            new Personnage("Caroline", "Ressources/Images/Caroline.png", new List<Attribut> { Attribut.Femme, Attribut.CheveuxCourt, Attribut.ClrCheveuxRoux, Attribut.Lunettes, Attribut.BarbeNu }),
+            new Personnage("Chris", "Ressources/Images/Chris.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxCourt, Attribut.ClrCheveuxNoir, Attribut.BarbeMoustache, Attribut.BarbeNu }),
+            new Personnage("Denis", "Ressources/Images/Denis.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxCourt, Attribut.ClrCheveuxBrun, Attribut.Lunettes, Attribut.BarbeNu }),
             new Personnage("Dora", "Ressources/Images/Dora.png", new List<Attribut> { Attribut.Femme, Attribut.CheveuxLong, Attribut.ClrCheveuxBrun, Attribut.Lunettes, Attribut.BarbeNu }),
-            new Personnage("Sam", "Ressources/Images/Sam.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxCourt, Attribut.ClrCheveuxBrun, Attribut.BarbeMoustache, Attribut.BarbeBarbe, Attribut.ClrBarbeBrun }),
-            new Personnage("Ted", "Ressources/Images/Ted.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxChauve }),
-            new Personnage("Katia", "Ressources/Images/Katia.png", new List<Attribut> { Attribut.Femme, Attribut.CheveuxCourt, Attribut.ClrCheveuxBlond }),
-            new Personnage("Alain", "Ressources/Images/Alain.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxCourt, Attribut.ClrCheveuxRoux, Attribut.Lunettes }),
-            new Personnage("Bob", "Ressources/Images/Bob.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxCourt, Attribut.ClrCheveuxNoir, Attribut.Lunettes }),
-            new Personnage("Eric", "Ressources/Images/Eric.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxChauve }),
+            new Personnage("Elodie", "Ressources/Images/Elodie.png", new List<Attribut> { Attribut.Femme, Attribut.CheveuxCourt, Attribut.ClrCheveuxNoir, Attribut.Lunettes, Attribut.BarbeNu, Attribut.CheveuxTypeFrises }),
+            new Personnage("Eric", "Ressources/Images/Eric.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxChauve, Attribut.ClrCheveuxNoir, Attribut.BarbeNu }),
+            new Personnage("Franck", "Ressources/Images/Franck.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxLong, Attribut.ClrCheveuxBlond, Attribut.BarbeBarbe, Attribut.BarbeMoustache, Attribut.ClrBarbeBlond }),
+            new Personnage("Gregory", "Ressources/Images/Gregory.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxCourt, Attribut.ClrCheveuxBlond, Attribut.BarbeMoustache, Attribut.BarbeNu }),
+            new Personnage("Hugo", "Ressources/Images/Hugo.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxCourt, Attribut.ClrCheveuxNoir, Attribut.Lunettes, Attribut.BarbeNu }),
             new Personnage("Ilian", "Ressources/Images/Ilian.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxCourt, Attribut.ClrCheveuxRoux, Attribut.Lunettes, Attribut.BarbeBarbe, Attribut.BarbeMoustache, Attribut.ClrBarbeRoux }),
-            new Personnage("Jeremy", "Ressources/Images/Jeremy.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxCourt, Attribut.ClrCheveuxRoux }),
-            new Personnage("Laurent", "Ressources/Images/Laurent.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxChauve, Attribut.BarbeMoustache, Attribut.ClrBarbeNoir }),
-            new Personnage("Mélanie", "Ressources/Images/Mélanie.png", new List<Attribut> { Attribut.Femme, Attribut.CheveuxCourt, Attribut.ClrCheveuxRoux, Attribut.Lunettes }),
-            new Personnage("Marie", "Ressources/Images/Marie.png", new List<Attribut> { Attribut.Femme, Attribut.CheveuxLong, Attribut.ClrCheveuxBrun }),
-            new Personnage("Rachid", "Ressources/Images/Rachid.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxCourt, Attribut.ClrCheveuxNoir }),
+            new Personnage("Jeremy", "Ressources/Images/Jeremy.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxCourt, Attribut.ClrCheveuxRoux, Attribut.BarbeNu }),
+            new Personnage("Katia", "Ressources/Images/Katia.png", new List<Attribut> { Attribut.Femme, Attribut.CheveuxCourt, Attribut.ClrCheveuxBlond, Attribut.BarbeNu }),
+            new Personnage("Kévin", "Ressources/Images/Kévin.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxCourt, Attribut.ClrCheveuxNoir, Attribut.BarbeNu, Attribut.CheveuxTypeRaides }),
+            new Personnage("Laurent", "Ressources/Images/Laurent.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxChauve, Attribut.ClrCheveuxNoir, Attribut.BarbeMoustache, Attribut.BarbeNu }),
+            new Personnage("Lisa", "Ressources/Images/Lisa.png", new List<Attribut> { Attribut.Femme, Attribut.CheveuxLong, Attribut.ClrCheveuxNoir, Attribut.Lunettes, Attribut.BarbeNu }),
+            new Personnage("Lou", "Ressources/Images/Lou.png", new List<Attribut> { Attribut.Femme, Attribut.CheveuxLong, Attribut.ClrCheveuxBlond, Attribut.BarbeNu }),
             new Personnage("Marc", "Ressources/Images/Marc.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxCourt, Attribut.ClrCheveuxNoir, Attribut.BarbeMoustache, Attribut.BarbeBarbe, Attribut.ClrBarbeNoir }),
-            new Personnage("Elodie", "Ressources/Images/Elodie.png", new List<Attribut> { Attribut.Femme, Attribut.CheveuxCourt, Attribut.ClrCheveuxNoir, Attribut.Lunettes }),
-            new Personnage("Matehau", "Ressources/Images/Matehau.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxCourt, Attribut.ClrCheveuxNoir })
+            new Personnage("Marie", "Ressources/Images/Marie.png", new List<Attribut> { Attribut.Femme, Attribut.CheveuxLong, Attribut.ClrCheveuxBrun, Attribut.BarbeNu, Attribut.CheveuxTypeOndules }),
+            new Personnage("Matehau", "Ressources/Images/Matehau.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxCourt, Attribut.ClrCheveuxNoir, Attribut.BarbeNu }),
+            new Personnage("Mélanie", "Ressources/Images/Mélanie.png", new List<Attribut> { Attribut.Femme, Attribut.CheveuxCourt, Attribut.ClrCheveuxRoux, Attribut.Lunettes, Attribut.BarbeNu }),
+            new Personnage("Natacha", "Ressources/Images/Natacha.png", new List<Attribut> { Attribut.Femme, Attribut.CheveuxLong, Attribut.ClrCheveuxBrun, Attribut.BarbeNu }),
+            new Personnage("Paul", "Ressources/Images/Paul.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxCourt, Attribut.ClrCheveuxNoir, Attribut.Lunettes, Attribut.BarbeNu }),
+            new Personnage("Rachid", "Ressources/Images/Rachid.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxCourt, Attribut.ClrCheveuxNoir, Attribut.BarbeNu }),
+            new Personnage("Sam", "Ressources/Images/Sam.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxCourt, Attribut.ClrCheveuxBrun, Attribut.BarbeMoustache, Attribut.BarbeBarbe, Attribut.ClrBarbeBrun }),
+            new Personnage("Samira", "Ressources/Images/Samira.png", new List<Attribut> { Attribut.Femme, Attribut.CheveuxLong, Attribut.ClrCheveuxNoir, Attribut.Lunettes, Attribut.BarbeNu }),
+            new Personnage("Sophie", "Ressources/Images/Sophie.png", new List<Attribut> { Attribut.Femme, Attribut.CheveuxCourt, Attribut.ClrCheveuxNoir, Attribut.Lunettes, Attribut.BarbeNu, Attribut.CheveuxTypeFrises }),
+            new Personnage("Ted", "Ressources/Images/Ted.png", new List<Attribut> { Attribut.Homme, Attribut.CheveuxChauve, Attribut.ClrCheveuxNoir, Attribut.BarbeNu })
         };
         return personnages;
     }
@@ -56,7 +71,7 @@ public class Jeu
     private void InitPlateau(List<Personnage> prsn)
     {
         Shuffle(prsn);
-        chosenOne = prsn[rng.Next(0, 24)];
+        chosenOne = prsn[rng.Next(0,24)];
         int i = 0;
         for (int x = 0; x < plateau.GetLength(0); x++)
         {
@@ -101,7 +116,7 @@ public class Jeu
     public List<string> GetQuestions()
     {
         List<string> qst = new List<string>();
-        foreach (Question q in questions)
+        foreach ( Question q in questions)
         {
             qst.Add(q.QuestionTexte);
         }
@@ -125,7 +140,7 @@ public class Jeu
         return "Question non trouvée";
     }
 
-    public bool Guess(string name)
+   public bool Guess(string name)
     {
         score++;
         if (name == chosenOne.Nom)
@@ -186,7 +201,7 @@ public class Jeu
         }
     }
 
-    public string GetPerson(int x, int y)
+    public string GetPerson(int x,int y)
     {
         if (isOutOfRange(x, y))
             return "OutofRange Exception";
@@ -205,5 +220,7 @@ public class Jeu
         }
         return nb == 23;
     }
+
+    public int GetScore() => score;
 }
 
