@@ -19,9 +19,9 @@ namespace WIN_QuiEstCe
             InitQuestion();
 
             //debug
-#if DEBUG
-            lblResponse.Text = jeu.GetChosenOne();
-#endif
+//#if DEBUG
+//            //lblResponse.Text = jeu.GetChosenOne();
+//#endif
         }
 
         private void InitQuestion()
